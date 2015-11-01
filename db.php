@@ -3,7 +3,7 @@ $conn;
 function dbConnect()
 {
 	global $conn;
-	$conn = mysqli_connect('mysqluser.c7fy9ny964vj.us-west-2.rds.amazonaws.com','hlwrocer','mysqlpassword','TODO','3306');
+	$conn = mysqli_connect('sql5.freemysqlhosting.net','sql595087','IJ3*eC3!','sql585087');
 	if (!$conn)
 	{
 		die('Could not connect to Database: ' . mysqli_error($conn));
