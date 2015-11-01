@@ -24,6 +24,10 @@
 
 			console.log($scope.input);
 			$scope.clearInput();
+			
+		}
+
+		$scope.goDoStuff = function() {
 			$rootScope.$broadcast('Input Submitted','todo');
 		}
 	};
