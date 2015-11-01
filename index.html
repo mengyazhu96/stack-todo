@@ -7,21 +7,14 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="app.js"></script>
+		<script src="todoItem.js"></script>
+		<script src="addItem.js"></script>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<title>stack todo</title>
 	</head>
-	<body ng-app="app">
-		<form name ="todoItem">
-			Add a todo item	<input type="text" ng-model="input.item">
-			How important is this item? <select class="importance" ng-model="input.impValues">
-				<option value=5>Very Important</option>
-				<option value=4>Important</option>
-				<option value=3>Kind of important</option>
-				<option value=2>Not that important</option>
-				<option value=1>Not important</option>
-			</select>
-			Estimated time completion? <select class="timeNeeded" ng-model="input.time">
-				<option value= 
-		</form>	
+	<body ng-app="app" ng-controller="viewCtrl as view" class="container">
+		<h1>Welcome to Focus.</h1>
+		<todo-item ng-if="state == 'todo'"></todo-item>
+		<add-item ng-if="state == 'input'"></add-item>
 	</body>
 </html>
