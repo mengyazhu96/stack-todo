@@ -1,12 +1,12 @@
 <div>
-	<form>
+	<form name="itemForm" novalidate>
 		<fieldset class="form-group">
 			<p>What do you need to do?</p>
-			<input style="text-align:center;" type="text" ng-model="input.todo_item">
+			<input type="text" ng-model="input.todo_item" required>
 		</fieldset>
-		<fieldset class="form-group text">
+		<fieldset class="form-group text" required>
 			<p>How important is it to do that?</p>
-			<select ng-model="input.todo_importance">
+			<select ng-model="input.todo_importance" required>
 				<option value='5'>Very Important</option>
 				<option value='4'>Important</option>
 				<option value='3'>Kind of important</option>
@@ -15,15 +15,15 @@
 			</select>
 		</fieldset>
 		<fieldset class="form-group">
-			<p>How long will it take you?</p>
-			<input style="text-align:center;" type="number" min="0" step="any" ng-model="input.todo_time">
+			<p>How many hours will it take you?</p>
+			<input class="error" type="number" min="0" step="any" ng-model="input.todo_time" required>
 		</fieldset>
 		<fieldset class="form-group">
 			<p>When does it need to get done?</p>
-			<input style="text-align:center;" type="date" ng-model="input.todo_date">
+			<input type="date" ng-model="input.todo_date" required>
 		</fieldset>
 		<fieldset class="form-group">
-			<input type="submit" class="btn btn-default" value="Submit" ng-click="addItem()">
+			<input type="submit" class="btn btn-default" value="Get it Done" ng-disabled="itemForm.$invalid" ng-click="addItem()">
 		</fieldset>
 	</form>	
 </div>

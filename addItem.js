@@ -4,8 +4,6 @@
 		$scope.clearInput = function() {
 			$scope.input = {
 				'todo_task':"",
-				'todo_importance': 0,
-				'todo_time': 0,
 				'todo_date': new Date(),
 				'query': 'insert'
 			}
@@ -14,7 +12,6 @@
 		$scope.clearInput();
 
 		$scope.addItem = function() {
-
 			var item = $scope.input;
 
 			$http.post('db.php', item)
