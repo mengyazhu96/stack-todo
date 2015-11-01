@@ -1,10 +1,5 @@
 <?php
-/*
-$dbhost
-$dbuser
-$dbpass
- */
-$conn 
+$conn;
 function dbConnect()
 {
 	$conn = mysql_connect('127.0.0.1','mysql_user','mysql_password');
@@ -16,7 +11,7 @@ function dbConnect()
 }
 function dbQuit()
 {
-	mysql_close($conn)
+	mysql_close($conn);
 }
 function dbCreate(){
 	$sql = 'CREATE DATABASE TODO';
@@ -39,7 +34,7 @@ function dbCreate(){
 		"todo_date DATE NOT NULL);";
 
 	$retval = mysql_query($sql, $conn);
-	if !($retval){
+	if (!$retval){
 		die('Could not create table: '. mysql_error());
 	}
 
@@ -78,5 +73,5 @@ function dbDelete($id){
 	}
 }
 $data = json_decode(file_get_contents("php://input"));
-echo $data;
+echo $data->query;
 ?>

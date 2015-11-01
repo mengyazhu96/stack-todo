@@ -2,11 +2,11 @@
 	<form>
 		<fieldset class="form-group">
 			<p>What do you need to do?</p>
-			<input style="text-align:center;" type="text" ng-model="input.item">
+			<input style="text-align:center;" type="text" ng-model="input.todo_item">
 		</fieldset>
 		<fieldset class="form-group text">
 			<p>How important is it to do that?</p>
-			<select ng-model="input.importance">
+			<select ng-model="input.todo_importance">
 				<option value='5'>Very Important</option>
 				<option value='4'>Important</option>
 				<option value='3'>Kind of important</option>
@@ -16,7 +16,7 @@
 		</fieldset>
 		<fieldset class="form-group">
 			<p>How long will it take you?</p>
-			<input style="text-align:center;" type="number" min="0" step="any" ng-model="input.time">
+			<input style="text-align:center;" type="number" min="0" step="any" ng-model="input.todo_time">
 		</fieldset>
 		<fieldset class="form-group">
 			<p>When does it need to get done?</p>
