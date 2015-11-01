@@ -17,7 +17,12 @@
 		}
 
 		$scope.completeItem = function() {
-			$scope.topPriority++;
+			if ($scope.topPriority >= $scope.todo.length) {
+				$scope.addItem();
+			} else {
+				$scope.topPriority++;
+			}
+
 			// make DB change
 		}
 	};
