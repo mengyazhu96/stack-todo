@@ -8,10 +8,10 @@
 		$scope.changeInput = function() {
 			$scope.showInput = !$scope.showInput;
 		}
-	}
+	};
 
 	controller.$inject = ['$scope'];
 
-	app.controller('ctrl',controller);
+	app.controller('viewCtrl',controller);
 
 })();
