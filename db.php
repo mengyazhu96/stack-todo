@@ -76,4 +76,7 @@ function dbDelete($id){
 	{
 		die('Could not get data: ' . mysql_eror());
 	}
+}
+$data = json_decode(file_get_contents("php://input"));
+echo $data;
 ?>
