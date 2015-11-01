@@ -12,9 +12,9 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<title>stack todo</title>
 	</head>
-	<body ng-app="app" ng-controller="viewCtrl" class="container">
+	<body ng-app="app" ng-controller="viewCtrl as view" class="container">
 		<h1>Welcome to Focus.</h1>
-		<todo-item ng-show="!showInput"></todo-item>
-		<add-item ng-show="showInput"></add-item>
+		<todo-item ng-if="state == 'todo'"></todo-item>
+		<add-item ng-if="state == 'input'"></add-item>
 	</body>
 </html>

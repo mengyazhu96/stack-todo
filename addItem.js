@@ -1,27 +1,25 @@
 (function() { 
-	// set up the controller for the accounts display
-	var controller = function($scope) {
-		var blank_input = {
-			'item':"",
-			'impValues': 0,
-			'time': 0
-		}
 
-		$scope.input = blank_input;
-
+	var controller = function($scope,$rootScope) {
 		$scope.clearInput = function() {
-			$scope.input = blank_input
+			$scope.input = {
+				'item':"",
+				'importance': 0,
+				'time': 0
+			}
 		}
+
+		$scope.clearInput();
 
 		$scope.addItem = function() {
 			console.log($scope.input);
 			$scope.clearInput();
+			$rootScope.$broadcast('Input Submitted','todo');
 		}
 	};
 
-	controller.$inject = ['$scope'];
+	controller.$inject = ['$scope','$rootScope'];
 
-	// set up the accounts display directive
 	var directive = function() {
         return {
             restrict: 'E',

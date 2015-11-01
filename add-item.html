@@ -1,21 +1,21 @@
 <div>
-	<form name="addItem">
+	<form>
 		<fieldset>
 			Add a todo item
 			<input type="text" ng-model="input.item">
 		</fieldset>
 		<fieldset>
-			How important is this item?
-			<select class="importance" ng-model="input.impValues">
-				<option value=5>Very Important</option>
-				<option value=4>Important</option>
-				<option value=3>Kind of important</option>
-				<option value=2>Not that important</option>
-				<option value=1>Not important</option>
+			How important is this item
+			<select ng-model="input.importance">
+				<option value='5'>Very Important</option>
+				<option value='4'>Important</option>
+				<option value='3'>Kind of important</option>
+				<option value='2'>Not that important</option>
+				<option value='1'>Not important</option>
 			</select>
 		</fieldset>
 		<fieldset>
-			Estimated time completion (hours)?
+			Estimated time completion (hours)
 			<input type="number" min="0" step="any" ng-model="input.time">
 		</fieldset>
 		<fieldset class="form-group">

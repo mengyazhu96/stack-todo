@@ -1,6 +1,6 @@
-(function() { 
-	// set up the controller for the accounts display
-	var controller = function($scope) {
+(function() {
+
+	var controller = function($scope,$rootScope) {
 		$scope.todo = [
 			{
 				'text': 'CS pset'
@@ -9,11 +9,21 @@
 				'text': 'stat pset'
 			}
 		]
+
+		$scope.topPriority = 0;
+
+		$scope.addItem = function() {
+			$rootScope.$broadcast('Add Item', 'input');
+		}
+
+		$scope.completeItem = function() {
+			$scope.topPriority++;
+			// make DB change
+		}
 	};
 
-	controller.$inject = ['$scope'];
+	controller.$inject = ['$scope','$rootScope'];
 
-	// set up the accounts display directive
 	var directive = function() {
         return {
             restrict: 'E',
