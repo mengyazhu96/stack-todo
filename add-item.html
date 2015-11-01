@@ -2,7 +2,7 @@
 	<form name="itemForm" novalidate>
 		<fieldset class="form-group">
 			<p>What do you need to do?</p>
-			<input type="text" ng-model="input.todo_item" required>
+			<input type="text" ng-model="input.todo_task" required>
 		</fieldset>
 		<fieldset class="form-group text" required>
 			<p>How important is it to do that?</p>
@@ -16,7 +16,7 @@
 		</fieldset>
 		<fieldset class="form-group">
 			<p>How many hours will it take you?</p>
-			<input class="error" type="number" min="0" step="any" ng-model="input.todo_time" required>
+			<input class="error" type="number" min="0.1" step="any" ng-model="input.todo_time" required>
 		</fieldset>
 		<fieldset class="form-group">
 			<p>When does it need to get done?</p>

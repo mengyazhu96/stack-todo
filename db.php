@@ -102,13 +102,11 @@ if ($data->query === 'insert'){
 	dbConnect();
 	dbCreate();
 	tableCreate();
-	$task = $data->todo_item;
+	$task = $data->todo_task;
 	$importance = $data->todo_importance;
 	$time = $data->todo_time;
 	$date = $data->todo_date;
-	echo 'aaaaa';
 	dbInsert($task, $importance, $time,$date);
-		echo 'bbbbb';
 }
 if ($data->query === 'delete'){
 	dbConnect();
@@ -116,7 +114,6 @@ if ($data->query === 'delete'){
 }
 if ($data->query === 'select'){
 	dbConnect();
-
 	dbSelect();
 }
 

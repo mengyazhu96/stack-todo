@@ -1,14 +1,14 @@
 (function() {
 
 	var weightItem = function(item) {
-		var dateDiff = (new Date(item.todo_date).getDate()) - (new Date().getDate());
-		var denom = (item.todo_importance * item.todo_importance * item.todo_time)
+		console.log('duedate:'+ new Date(item.todo_date).getTime());
+		console.log('today?' + new Date().getTime())
+		var dateDiff = (new Date(item.todo_date).getTime() / 1000) - (new Date().getTime() / 1000);
+		var denom = (item.todo_importance * item.todo_importance * (item.todo_time + 1))
 		return dateDiff / denom;
 	}
 
 	var importanceWeighting = function(item1, item2) {
-		console.log(item1);
-		console.log(item2);
 		var weighting1 = weightItem(item1);
 		var weighting2 = weightItem(item2);
 		item1.weighting = weighting1;
@@ -44,6 +44,9 @@
 				$scope.todo = JSON.parse(response);
 				$scope.todo.sort(importanceWeighting);
 				console.log($scope.todo);
+				if ($scope.todo.length == 0) {
+					$scope.done = true;
+				}
 			})
 			.error(function(response){
 				console.log("DB Select Error! noooooooooooo");
@@ -53,24 +56,22 @@
 		$scope.dbSelect();
 
 		$scope.completeItem = function() {
-			if ($scope.topPriority >= $scope.todo.length) {
-				$scope.addItem();
-			} else {
-				var req = {
-					'query':'delete',
-					'todo_id':$scope.todo[$scope.topPriority].todo_id
-				}
-				$http.post('db.php', req)
-				.success(function(response) {
-					console.log(response);
-					$scope.topPriority++;
-				})
-				.error(function(response) {
-					console.log('DB Delete Failure. noooooooooooo')
-					console.log(response);
-				})
-				
+			var req = {
+				'query':'delete',
+				'todo_id':$scope.todo[$scope.topPriority].todo_id
 			}
+			$http.post('db.php', req)
+			.success(function(response) {
+				console.log(response);
+				$scope.topPriority++;
+				if ($scope.topPriority >= $scope.todo.length) {
+					$scope.done = true;
+				}
+			})
+			.error(function(response) {
+				console.log('DB Delete Failure. noooooooooooo')
+				console.log(response);
+			})
 		}
 
 		
