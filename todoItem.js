@@ -1,7 +1,7 @@
 (function() { 
 	// set up the controller for the accounts display
 	var controller = function($scope) {
-		$scope.toDo = [
+		$scope.todo = [
 			{
 				'text': 'CS pset'
 			},
@@ -23,5 +23,5 @@
     };
 
     angular.module('todoItem',[])
-    .directive('todoItem',directive)
+    .directive('todoItem', directive)
 })();
