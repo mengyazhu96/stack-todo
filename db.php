@@ -78,5 +78,10 @@ function dbDelete($id){
 	}
 }
 $data = json_decode(file_get_contents("php://input"));
-echo $data;
+if ($data->query === 'insert'){
+	dbInsert($data->todo_task, $data->todo_importance, $data->todo_time,$data->todo_date);
+}
+if ($data->query ==== 'delete'){
+	dbDelete($data->todo_id);
+}
 ?>
