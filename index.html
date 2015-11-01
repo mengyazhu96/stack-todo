@@ -11,6 +11,17 @@
 		<title>stack todo</title>
 	</head>
 	<body ng-app="app">
-		
+		<form name ="todoItem">
+			Add a todo item	<input type="text" ng-model="input.item">
+			How important is this item? <select class="importance" ng-model="input.impValues">
+				<option value=5>Very Important</option>
+				<option value=4>Important</option>
+				<option value=3>Kind of important</option>
+				<option value=2>Not that important</option>
+				<option value=1>Not important</option>
+			</select>
+			Estimated time completion? <select class="timeNeeded" ng-model="input.time">
+				<option value= 
+		</form>	
 	</body>
 </html>
