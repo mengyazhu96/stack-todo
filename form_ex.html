@@ -1,0 +1,49 @@
+<input ng-show="!doWish && data.accountID" class="btn btn-default" ng-click="makeWish()" type="submit" value="Add Wish">
+<input ng-show="!doWish" class="btn btn-default" ng-click="guide.showAiring($index)" type="submit" value="Close">
+<div ng-show="doWish">
+	<strong>Record:</strong>
+	<form name="wishForm">
+		<fieldset class="form-group radio">
+			<label>
+				<input ng-click="setSeries()" type="radio" ng-model="input.wishType" value="Single">
+				Only This Episode
+			</label>
+			<label>
+				<input ng-click="setSeries()" type="radio" ng-model="input.wishType" value="Series">
+				Entire Series
+			</label>
+		</fieldset>
+		<fieldset ng-show="seriesOptions" class="form-group checkbox nested-input">
+			<label>
+				<input type="checkbox" ng-model="input.newOnly">
+				New Episodes Only
+			</label><br>
+			<label>
+				<input type="checkbox" ng-model="input.selectedChannelOnly">
+				Selected Channel Only
+			</label>
+		</fieldset>
+		<fieldset class="form-group checkbox">
+			<label>
+				<input ng-click="setMinutes()" type="checkbox" ng-model="startEnd">
+				Start/End On-Time {{title.addWishType}}
+			</label>
+		</fieldset>
+		<fieldset class="form-group" ng-show="!startEnd">
+			<label class="nested-input">Early Minutes:</label>
+			<select ng-model="input.earlyStartTime" ng-options="num as num for num in [0,5,10,15,20,25,30]"></select><br>
+			<label class="nested-input">Late Minutes:</label>
+			<select ng-model="input.lateEndTime" ng-options="num as num for num in [0,5,10,15,20,25,30]"></select>
+		</fieldset>
+		<fieldset class="form-group checkbox">
+			<label>
+				<input type="checkbox" ng-model="input.keepForever">
+				Keep Forever
+			</label>
+		</fieldset>
+		<fieldset class="form-group">
+			<input type="submit" class="btn btn-default" value="Submit" ng-click="addWish(guide.mapID,airing)">
+			<input class="btn btn-default" ng-click="cancelWish()" type="submit" value="Cancel">
+		</fieldset>
+	</form>	
+</div>
