@@ -5,7 +5,8 @@
 			$scope.input = {
 				'item':"",
 				'importance': 0,
-				'time': 0
+				'time': 0,
+				'todo_date': new Date()
 			}
 		}
 
