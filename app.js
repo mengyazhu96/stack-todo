@@ -1,6 +1,6 @@
 (function() {
 
 	// initialize app
-	angular.module('app',['todoItem']);
+	angular.module('app',['todoItem','addItem']);
 
 })();
